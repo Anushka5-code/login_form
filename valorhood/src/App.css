@@ -1,0 +1,201 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(45deg, #ff007a, #00ddeb);
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"%3E%3Cpath fill="%23ffffff" opacity="0.2" d="M50 50 L100 100 L50 150 Q25 125 50 100 Q75 75 50 50"/%3E%3Ccircle cx="200" cy="200" r="50" fill="%23ffffff" opacity="0.15"/%3E%3C/svg%3E');
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+h1 {
+  color: #1a1a2f;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 122, 0.5), 0 0 15px rgba(0, 221, 235, 0.5);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.modal-content h2 {
+  color: #1a1a2f;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 122, 0.5), 0 0 15px rgba(0, 221, 235, 0.5);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.open-modal-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(255, 0, 122, 0.3);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.open-modal-btn:hover {
+  box-shadow: 0 8px 25px rgba(255, 0, 122, 0.5);
+  transform: scale(1.05);
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(255, 0, 122, 0.2));
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(255, 0, 122, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ff007a;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #00ddeb;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  color: #ffffff;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(255, 0, 122, 0.7), 0 0 12px rgba(0, 221, 235, 0.7);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-container {
+  position: relative;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ff007a, #00ddeb);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  position: absolute;
+  box-shadow: 0 5px 20px rgba(255, 0, 122, 0.5);
+}
+
+.login-btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-btn:not(:disabled):hover {
+  box-shadow: 0 8px 25px rgba(255, 0, 122, 0.7), 0 8px 25px rgba(0, 221, 235, 0.7);
+  background: linear-gradient(45deg, #ff3399, #33eeff);
+}
+
+.shift-left { transform: translateX(-110px); }
+.shift-right { transform: translateX(110px); }
+.shift-top { transform: translateY(-30px); }
+.shift-bottom { transform: translateY(30px); }
+
+.msg {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  font-weight: 400;
+  min-height: 24px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
